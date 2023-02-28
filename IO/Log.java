@@ -1,4 +1,4 @@
-package IO;
+package IO.IO;
 
 public class Log {
 
