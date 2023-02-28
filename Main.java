@@ -4,7 +4,7 @@ public class Main {
 
     private static void fileInputStream() throws Exception{
 
-        String filePath = "/Users/arun-zt455/IdeaProjects/JAVA/IO/sample.txt";
+        String filePath = "/Users/arun-zt455/GitHub/JAVA/sample.txt";
 
         FileInputStream fileInputStream = new FileInputStream(filePath);
 
