@@ -10,7 +10,7 @@ public class Main {
         fileInputStream.isMarkSupported();
 
         fileInputStream = new FileInputStream(filePath);
-        fileInputStream.readUsingSingleByte();
+        fileInputStream.readSingleByte();
 
         fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingByteArray(new byte[3]);

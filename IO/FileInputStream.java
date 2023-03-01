@@ -1,6 +1,5 @@
 package IO.IO;
 
-import java.io.File;
 import java.io.InputStream;
 
 public class FileInputStream {
@@ -16,7 +15,7 @@ public class FileInputStream {
     }
 
     //read()
-    public void readUsingSingleByte() throws Exception {
+    public void readSingleByte() throws Exception {
 
         Long startTime = System.currentTimeMillis();
 
