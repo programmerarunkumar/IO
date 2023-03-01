@@ -1,12 +1,10 @@
 package IO.IO;
 
-import IO.IO.FileInputStream;
-
 public class Main {
 
     private static void fileInputStream() throws Exception{
 
-        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sample.txt";
+        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleInput.txt";
 
         FileInputStream fileInputStream = new FileInputStream(filePath);
 
@@ -22,9 +20,25 @@ public class Main {
 
     }
 
+    private static void fileOutputStream() throws Exception {
+
+        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleOutput.txt";
+
+        FileOutputStream fileOutputStream = new FileOutputStream(filePath);
+
+        fileOutputStream.writeUsingSingleByte();
+
+        fileOutputStream.writeUsingByteArray();
+
+        fileOutputStream.writeUsingByteArrayOffset();
+
+    }
+
     public static void main(String[] args) throws Exception {
 
         fileInputStream();
+
+        fileOutputStream();
 
         return;
 
