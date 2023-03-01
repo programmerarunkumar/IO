@@ -7,15 +7,18 @@ public class Main {
         String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleInput.txt";
 
         FileInputStream fileInputStream = new FileInputStream(filePath);
-
         fileInputStream.isMarkSupported();
 
+        fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingSingleByte();
 
-        fileInputStream.readFullFileUsingByteArray();
-
+        fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingByteArray(new byte[3]);
 
+        fileInputStream = new FileInputStream(filePath);
+        fileInputStream.readFullFileUsingByteArray();
+
+        fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingByteArrayOffset();
 
     }
