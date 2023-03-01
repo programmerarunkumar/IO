@@ -37,11 +37,31 @@ public class Main {
 
     }
 
+    private static void byteArrayInputStream() throws Exception {
+
+        String input = "Hi Hello Im ArunKumar MP";
+
+        ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.isMarkSupported();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.available();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.read();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.markAndReset();
+
+    }
+
     public static void main(String[] args) throws Exception {
 
         fileInputStream();
 
         fileOutputStream();
+
+        byteArrayInputStream();
 
         return;
 

@@ -4,14 +4,19 @@ import java.io.InputStream;
 
 public class FileInputStream {
 
-    private InputStream inputStream;
+    private InputStream fileInputStream;
 
     FileInputStream(String filePath) throws Exception{
-        this.inputStream = new java.io.FileInputStream(filePath);
+        this.fileInputStream = new java.io.FileInputStream(filePath);
     }
 
-    FileInputStream(InputStream inputStream){
-        this.inputStream = inputStream;
+    public void isMarkSupported() throws Exception {
+
+        boolean isMarkSupported = fileInputStream.markSupported();
+        fileInputStream.close();
+
+        System.out.println("isMarkSupported : " + isMarkSupported);
+
     }
 
     //read()
@@ -19,12 +24,12 @@ public class FileInputStream {
 
         Long startTime = System.currentTimeMillis();
 
-        int data = inputStream.read();
+        int data = fileInputStream.read();
         while (data != -1){
             Log.printByte(data);
-            data = inputStream.read();
+            data = fileInputStream.read();
         }
-        inputStream.close();
+        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingSingleByte. Total Time : " + (endTime-startTime));
@@ -37,10 +42,10 @@ public class FileInputStream {
         Long startTime = System.currentTimeMillis();
 
         int byteLen;
-        while ((byteLen = inputStream.read(byteArray)) != -1){
+        while ((byteLen = fileInputStream.read(byteArray)) != -1){
             Log.printByte(byteArray, byteLen);
         }
-        inputStream.close();
+        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArray. Total Time : " + (endTime-startTime));
@@ -50,16 +55,16 @@ public class FileInputStream {
     //int read(byte[])
     public void readFullFileUsingByteArray() throws Exception {
 
-        byte[] byteArray =  new byte[inputStream.available()];
+        byte[] byteArray =  new byte[fileInputStream.available()];
 
         Long startTime = System.currentTimeMillis();
 
-        int byteLen = inputStream.read(byteArray);
+        int byteLen = fileInputStream.read(byteArray);
 
         for(int i = 0; i<byteLen; i++){
             Log.printByte(byteArray[i]);
         }
-        inputStream.close();
+        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readFullFileUsingByteArray. Total Time : " + (endTime-startTime));
@@ -74,24 +79,14 @@ public class FileInputStream {
         Long startTime = System.currentTimeMillis();
 
         int bytesRead;
-        while ((bytesRead = inputStream.read(byteArray, 0 ,byteArray.length)) != -1){
+        while ((bytesRead = fileInputStream.read(byteArray, 0 ,byteArray.length)) != -1){
             Log.printByte(byteArray, bytesRead);
         }
-        inputStream.close();
+        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArrayOffset. Total Time : " + (endTime-startTime));
 
     }
-
-    public void isMarkSupported() throws Exception {
-
-        boolean isMarkSupported = inputStream.markSupported();
-        inputStream.close();
-
-        System.out.println("isMarkSupported : " + isMarkSupported);
-
-    }
-
 
 }
