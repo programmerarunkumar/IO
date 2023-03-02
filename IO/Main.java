@@ -43,15 +43,31 @@ public class Main {
 
         ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(input);
         byteArrayInputStream.isMarkSupported();
+        byteArrayInputStream.close();
 
         byteArrayInputStream = new ByteArrayInputStream(input);
         byteArrayInputStream.available();
+        byteArrayInputStream.close();
 
         byteArrayInputStream = new ByteArrayInputStream(input);
-        byteArrayInputStream.read();
+        byteArrayInputStream.readSingleByte();
+        byteArrayInputStream.close();
 
         byteArrayInputStream = new ByteArrayInputStream(input);
         byteArrayInputStream.markAndReset();
+        byteArrayInputStream.close();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.readUsingByteArray(new byte[3]);
+        byteArrayInputStream.close();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.readFullFileUsingByteArray();
+        byteArrayInputStream.close();
+
+        byteArrayInputStream = new ByteArrayInputStream(input);
+        byteArrayInputStream.readUsingByteArrayOffset();
+        byteArrayInputStream.close();
 
     }
 

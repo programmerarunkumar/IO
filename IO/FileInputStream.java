@@ -61,9 +61,7 @@ public class FileInputStream {
 
         int byteLen = fileInputStream.read(byteArray);
 
-        for(int i = 0; i<byteLen; i++){
-            Log.printByte(byteArray[i]);
-        }
+        Log.printByte(byteArray, byteLen);
         fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
@@ -78,9 +76,9 @@ public class FileInputStream {
 
         Long startTime = System.currentTimeMillis();
 
-        int bytesRead;
-        while ((bytesRead = fileInputStream.read(byteArray, 0 ,byteArray.length)) != -1){
-            Log.printByte(byteArray, bytesRead);
+        int bytesLen;
+        while ((bytesLen = fileInputStream.read(byteArray, 0 ,byteArray.length)) != -1){
+            Log.printByte(byteArray, bytesLen);
         }
         fileInputStream.close();
 

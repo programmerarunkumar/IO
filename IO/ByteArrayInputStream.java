@@ -14,8 +14,6 @@ public class ByteArrayInputStream {
     public void isMarkSupported() throws Exception {
 
         boolean isMarkSupported = byteArrayInputStream.markSupported();
-        byteArrayInputStream.close();
-
         System.out.println("isMarkSupported : " + isMarkSupported);
 
     }
@@ -23,20 +21,46 @@ public class ByteArrayInputStream {
     public void available() throws Exception {
 
         int available = byteArrayInputStream.available();
-        byteArrayInputStream.close();
-
         System.out.println("available : " + available);
 
     }
 
-    public void read() throws Exception{
+    public void readSingleByte() throws Exception {
 
         int data = byteArrayInputStream.read();
         while (data != -1){
             Log.printByte(data);
             data = byteArrayInputStream.read();
         }
-        byteArrayInputStream.close();
+
+    }
+
+    public void readUsingByteArray(byte[] byteArray) throws Exception {
+
+        int readLen;
+        while ((readLen = byteArrayInputStream.read(byteArray)) != -1){
+            Log.printByte(byteArray, readLen);
+        }
+
+    }
+
+    public void readFullFileUsingByteArray() throws Exception {
+
+        byte[] byteArray = new byte[byteArrayInputStream.available()];
+
+        int byteLen = byteArrayInputStream.read(byteArray);
+        Log.printByte(byteArray, byteLen);
+
+    }
+
+    public void readUsingByteArrayOffset() throws Exception {
+
+        byte[] byteArray = new byte[3];
+
+        int byteLen;
+        while ((byteLen = byteArrayInputStream.read(byteArray, 0, byteArray.length)) != -1){
+            Log.printByte(byteArray, byteLen);
+        }
 
     }
 
@@ -61,8 +85,10 @@ public class ByteArrayInputStream {
         while ((value = byteArrayInputStream.read()) != -1){
             Log.printByte(value);
         }
-        byteArrayInputStream.close();
 
     }
 
+    public void close() throws Exception {
+        this.byteArrayInputStream.close();
+    }
 }
