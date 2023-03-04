@@ -1,21 +1,22 @@
 package IO.IO;
 
+import java.io.FileNotFoundException;
 import java.io.OutputStream;
 
 public class FileOutputStream {
 
     private String filePath;
+    private OutputStream fileOutputStream;
 
-    FileOutputStream(String filePath){
+    FileOutputStream(String filePath) throws Exception {
         this.filePath = filePath;
+        this.fileOutputStream = new java.io.FileOutputStream(filePath);
     }
 
-    public void writeUsingSingleByte() throws Exception {
+    public void writeSingleByte() throws Exception {
 
         String data = "Hi Hello Im ArunKumar MP. writeUsingSingleByte";
         byte[] byteArray = data.getBytes();
-
-        OutputStream fileOutputStream = new java.io.FileOutputStream(filePath);
 
         Long startTime = System.currentTimeMillis();
         for(byte value : byteArray){
@@ -31,8 +32,6 @@ public class FileOutputStream {
 
         String data = "Hi Hello Im ArunKumar MP. writeUsingByteArray";
         byte[] byteArray = data.getBytes();
-
-        OutputStream fileOutputStream = new java.io.FileOutputStream(filePath);
 
         Long startTime = System.currentTimeMillis();
         fileOutputStream.write(byteArray);
@@ -57,6 +56,10 @@ public class FileOutputStream {
 
         System.out.println("writeUsingByteArrayOffset. Total Time : " + (endTime-startTime));
 
+    }
+
+    public void close() throws Exception {
+        this.fileOutputStream.close();
     }
 
 }

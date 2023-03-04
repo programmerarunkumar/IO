@@ -1,5 +1,7 @@
 package IO.IO;
 
+import java.util.Scanner;
+
 public class Main {
 
     private static void fileInputStream() throws Exception{
@@ -38,11 +40,16 @@ public class Main {
 
         FileOutputStream fileOutputStream = new FileOutputStream(filePath);
 
-        fileOutputStream.writeUsingSingleByte();
+        fileOutputStream.writeSingleByte();
+        fileOutputStream.close();
 
+        fileOutputStream = new FileOutputStream(filePath);
         fileOutputStream.writeUsingByteArray();
+        fileOutputStream.close();
 
+        fileOutputStream = new FileOutputStream(filePath);
         fileOutputStream.writeUsingByteArrayOffset();
+        fileOutputStream.close();
 
     }
 
@@ -80,13 +87,58 @@ public class Main {
 
     }
 
+    private static void  byteArrayOutputStream() throws Exception {
+
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+
+        byteArrayOutputStream.writeSingeByte();
+        byteArrayOutputStream.close();
+
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        byteArrayOutputStream.writeUsingByteArray();
+        byteArrayOutputStream.close();
+
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        byteArrayOutputStream.writeUsingByteArrayOffset();
+        byteArrayOutputStream.close();
+
+        byteArrayOutputStream = new ByteArrayOutputStream();
+        byteArrayOutputStream.writeTo();
+        byteArrayOutputStream.close();
+
+    }
+
     public static void main(String[] args) throws Exception {
 
-        fileInputStream();
+        Scanner scanner = new Scanner(System.in);
 
-        fileOutputStream();
+        System.out.println("Enter 1-Read, 2-Write");
+        int actionType = scanner.nextInt();
+        if(actionType == 1){
+            System.out.println("Enter 1-fileInputStream, 2-byteArrayInputStream");
+            int readType = scanner.nextInt();
+            switch (readType){
+                case 1:
+                    fileInputStream();
+                    break;
 
-        byteArrayInputStream();
+                case 2:
+                    byteArrayInputStream();
+                    break;
+            }
+        }else if (actionType == 2){
+            System.out.println("Enter 1-fileOutputStream, 2-byteArrayOutputStream");
+            int writeType = scanner.nextInt();
+            switch (writeType){
+                case 1:
+                    fileOutputStream();
+                    break;
+
+                case 2:
+                    byteArrayOutputStream();
+                    break;
+            }
+        }
 
         return;
 
