@@ -8,18 +8,27 @@ public class Main {
 
         FileInputStream fileInputStream = new FileInputStream(filePath);
         fileInputStream.isMarkSupported();
+        fileInputStream.close();
+
+        fileInputStream = new FileInputStream(filePath);
+        fileInputStream.available();
+        fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
         fileInputStream.readSingleByte();
+        fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingByteArray(new byte[3]);
+        fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
         fileInputStream.readFullFileUsingByteArray();
+        fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
         fileInputStream.readUsingByteArrayOffset();
+        fileInputStream.close();
 
     }
 

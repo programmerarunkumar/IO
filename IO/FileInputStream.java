@@ -13,13 +13,17 @@ public class FileInputStream {
     public void isMarkSupported() throws Exception {
 
         boolean isMarkSupported = fileInputStream.markSupported();
-        fileInputStream.close();
-
         System.out.println("isMarkSupported : " + isMarkSupported);
 
     }
 
-    //read()
+    public void available() throws Exception {
+
+        int available = fileInputStream.available();
+        System.out.println("available : " + available);
+
+    }
+
     public void readSingleByte() throws Exception {
 
         Long startTime = System.currentTimeMillis();
@@ -29,14 +33,12 @@ public class FileInputStream {
             Log.printByte(data);
             data = fileInputStream.read();
         }
-        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingSingleByte. Total Time : " + (endTime-startTime));
 
     }
 
-    //int read(byte[])
     public void readUsingByteArray(byte[] byteArray) throws Exception{
 
         Long startTime = System.currentTimeMillis();
@@ -45,14 +47,12 @@ public class FileInputStream {
         while ((byteLen = fileInputStream.read(byteArray)) != -1){
             Log.printByte(byteArray, byteLen);
         }
-        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArray. Total Time : " + (endTime-startTime));
 
     }
 
-    //int read(byte[])
     public void readFullFileUsingByteArray() throws Exception {
 
         byte[] byteArray =  new byte[fileInputStream.available()];
@@ -62,14 +62,12 @@ public class FileInputStream {
         int byteLen = fileInputStream.read(byteArray);
 
         Log.printByte(byteArray, byteLen);
-        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readFullFileUsingByteArray. Total Time : " + (endTime-startTime));
 
     }
 
-    //int read(byte[], int offset, int length)
     public void readUsingByteArrayOffset() throws Exception{
 
         byte[] byteArray = new byte[3];
@@ -80,11 +78,14 @@ public class FileInputStream {
         while ((bytesLen = fileInputStream.read(byteArray, 0 ,byteArray.length)) != -1){
             Log.printByte(byteArray, bytesLen);
         }
-        fileInputStream.close();
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArrayOffset. Total Time : " + (endTime-startTime));
 
+    }
+
+    public void close() throws Exception {
+        fileInputStream.close();
     }
 
 }
