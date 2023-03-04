@@ -2,7 +2,7 @@ package IO.IO;
 
 public class Log {
 
-    private static final boolean IS_LOG_ENABLED = false;
+    private static final boolean IS_LOG_ENABLED = true;
 
     public static void printByte(byte data){
         if(!IS_LOG_ENABLED){
