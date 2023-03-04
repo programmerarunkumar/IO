@@ -63,7 +63,8 @@ public class ByteArrayOutputStream {
         byteArrayOutputStream.writeTo(fileOutputStream1);
         byteArrayOutputStream.writeTo(fileOutputStream2);
 
-        byteArrayOutputStream.flush();
+        fileOutputStream1.close();
+        fileOutputStream2.close();
 
     }
 

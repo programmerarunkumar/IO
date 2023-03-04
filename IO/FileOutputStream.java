@@ -1,6 +1,5 @@
 package IO.IO;
 
-import java.io.FileNotFoundException;
 import java.io.OutputStream;
 
 public class FileOutputStream {
@@ -45,8 +44,6 @@ public class FileOutputStream {
 
         String data = "Hi Hello Im ArunKumar MP. writeUsingByteArrayOffset";
         byte[] byteArray = data.getBytes();
-
-        OutputStream fileOutputStream = new java.io.FileOutputStream(filePath);
 
         Long startTime = System.currentTimeMillis();
         for(int i=0; i< byteArray.length; i++){
