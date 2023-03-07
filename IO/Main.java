@@ -108,6 +108,36 @@ public class Main {
 
     }
 
+    private static void bufferedInputStream() throws Exception {
+
+        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleInput.txt";
+
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.isMarkSupported();
+        bufferedInputStream.close();
+
+        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.available();
+        bufferedInputStream.close();
+
+        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.readSingleByte();
+        bufferedInputStream.close();
+
+        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.readUsingByteArray(new byte[3]);
+        bufferedInputStream.close();
+
+        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.readFullFileUsingByteArray();
+        bufferedInputStream.close();
+
+        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream.readUsingByteArrayOffset();
+        bufferedInputStream.close();
+
+    }
+
     public static void main(String[] args) throws Exception {
 
         Scanner scanner = new Scanner(System.in);
@@ -115,7 +145,7 @@ public class Main {
         System.out.println("Enter 1-Read, 2-Write");
         int actionType = scanner.nextInt();
         if(actionType == 1){
-            System.out.println("Enter 1-fileInputStream, 2-byteArrayInputStream");
+            System.out.println("Enter 1-fileInputStream, 2-byteArrayInputStream, 3-bufferedInputStream");
             int readType = scanner.nextInt();
             switch (readType){
                 case 1:
@@ -124,6 +154,10 @@ public class Main {
 
                 case 2:
                     byteArrayInputStream();
+                    break;
+
+                case 3:
+                    bufferedInputStream();
                     break;
             }
         }else if (actionType == 2){
