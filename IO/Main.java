@@ -6,29 +6,13 @@ public class Main {
 
     private static void fileInputStream() throws Exception{
 
-        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        FileInputStream fileInputStream = new FileInputStream();
         fileInputStream.isMarkSupported();
-        fileInputStream.close();
-
-        fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
         fileInputStream.available();
-        fileInputStream.close();
-
-        fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
         fileInputStream.readSingleByte();
-        fileInputStream.close();
-
-        fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
         fileInputStream.readUsingByteArray();
-        fileInputStream.close();
-
-        fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
         fileInputStream.readFullFileUsingByteArray();
-        fileInputStream.close();
-
-        fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
         fileInputStream.readUsingByteArrayOffset();
-        fileInputStream.close();
 
     }
 
