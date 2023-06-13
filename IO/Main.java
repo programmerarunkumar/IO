@@ -6,7 +6,7 @@ public class Main {
 
     private static void fileInputStream() throws Exception{
 
-        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleInput.txt";
+        String filePath = "/Users/arun-zt455/Github/JAVA-IO/Image/Image5.webp";
 
         FileInputStream fileInputStream = new FileInputStream(filePath);
         fileInputStream.isMarkSupported();
@@ -21,7 +21,7 @@ public class Main {
         fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
-        fileInputStream.readUsingByteArray(new byte[3]);
+        fileInputStream.readUsingByteArray();
         fileInputStream.close();
 
         fileInputStream = new FileInputStream(filePath);
