@@ -29,13 +29,14 @@ public class BufferedInputStream {
 
         Long startTime = System.currentTimeMillis();
 
-        int data;
-        while ((data = bufferedInputStream.read()) != -1){
-            Log.printByte(data);
+        int totalSize = 0;
+        while (bufferedInputStream.read() != -1){
+            totalSize++;
         }
 
         Long endTime = System.currentTimeMillis();
-        System.out.println("readUsingSingleByte. Total Time : " + (endTime-startTime));
+
+        System.out.println("readUsingSingleByte. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
     }
 
@@ -44,12 +45,13 @@ public class BufferedInputStream {
         Long startTime = System.currentTimeMillis();
 
         int byteLen;
+        int totalSize = 0;
         while ((byteLen = bufferedInputStream.read(byteArray)) != -1){
-            Log.printByte(byteArray, byteLen);
+            totalSize = totalSize + byteLen;
         }
 
         Long endTime = System.currentTimeMillis();
-        System.out.println("readUsingByteArray. Total Time : " + (endTime-startTime));
+        System.out.println("readUsingByteArray. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
     }
 
@@ -59,11 +61,10 @@ public class BufferedInputStream {
 
         byte[] byteArray = new byte[bufferedInputStream.available()];
 
-        int byteLen = bufferedInputStream.read(byteArray);
-        Log.printByte(byteArray, byteLen);
+        int totalSize = bufferedInputStream.read(byteArray);
 
         Long endTime = System.currentTimeMillis();
-        System.out.println("readFullFileUsingByteArray. Total Time : " + (endTime-startTime));
+        System.out.println("readFullFileUsingByteArray. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
     }
 
@@ -74,12 +75,13 @@ public class BufferedInputStream {
         byte[] byteArray = new byte[3];
 
         int byteLen;
+        int totalSize = 0;
         while ((byteLen = bufferedInputStream.read(byteArray, 0, byteArray.length)) != -1){
-            Log.printByte(byteArray, byteLen);
+           totalSize = totalSize + byteLen;
         }
 
         Long endTime = System.currentTimeMillis();
-        System.out.println("readUsingByteArrayOffset. Total Time : " + (endTime-startTime));
+        System.out.println("readUsingByteArrayOffset. Size : " + totalSize + " Total Time : " + (endTime-startTime));
     }
 
     public void close() throws Exception {

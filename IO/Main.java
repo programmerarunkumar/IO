@@ -92,29 +92,27 @@ public class Main {
 
     private static void bufferedInputStream() throws Exception {
 
-        String filePath = "/Users/arun-zt455/GitHub/JAVA/IO/sampleInput.txt";
-
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(filePath);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.isMarkSupported();
         bufferedInputStream.close();
 
-        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.available();
         bufferedInputStream.close();
 
-        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readSingleByte();
         bufferedInputStream.close();
 
-        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readUsingByteArray(new byte[3]);
         bufferedInputStream.close();
 
-        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readFullFileUsingByteArray();
         bufferedInputStream.close();
 
-        bufferedInputStream = new BufferedInputStream(filePath);
+        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readUsingByteArrayOffset();
         bufferedInputStream.close();
 
