@@ -92,29 +92,13 @@ public class Main {
 
     private static void bufferedInputStream() throws Exception {
 
-        BufferedInputStream bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
+        BufferedInputStream bufferedInputStream = new BufferedInputStream();
         bufferedInputStream.isMarkSupported();
-        bufferedInputStream.close();
-
-        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.available();
-        bufferedInputStream.close();
-
-        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readSingleByte();
-        bufferedInputStream.close();
-
-        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
-        bufferedInputStream.readUsingByteArray(new byte[3]);
-        bufferedInputStream.close();
-
-        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
+        bufferedInputStream.readUsingByteArray();
         bufferedInputStream.readFullFileUsingByteArray();
-        bufferedInputStream.close();
-
-        bufferedInputStream = new BufferedInputStream(Constant.INPUT_IMAGE);
         bufferedInputStream.readUsingByteArrayOffset();
-        bufferedInputStream.close();
 
     }
 

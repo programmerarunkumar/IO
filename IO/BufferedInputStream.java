@@ -4,28 +4,34 @@ import java.io.FileInputStream;
 
 public class BufferedInputStream {
 
-    private java.io.BufferedInputStream bufferedInputStream;
+    public void isMarkSupported() throws Exception {
 
-    BufferedInputStream(String filePath) throws Exception {
-        FileInputStream fileInputStream = new FileInputStream(filePath);
-        bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
-    }
-
-    public void isMarkSupported(){
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
 
         boolean isMarkSupported = bufferedInputStream.markSupported();
         System.out.println("isMarkSupported : " + isMarkSupported);
+
+        bufferedInputStream.close();
 
     }
 
     public void available() throws Exception{
 
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
+
         int available = bufferedInputStream.available();
         System.out.println("available : " + available);
+
+        bufferedInputStream.close();
 
     }
 
     public void readSingleByte() throws Exception {
+
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
 
         Long startTime = System.currentTimeMillis();
 
@@ -38,10 +44,16 @@ public class BufferedInputStream {
 
         System.out.println("readSingleByte. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
+        bufferedInputStream.close();
+
     }
 
-    public void readUsingByteArray(byte[] byteArray) throws Exception {
+    public void readUsingByteArray() throws Exception {
 
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
+
+        byte[] byteArray = new byte[3];
         Long startTime = System.currentTimeMillis();
 
         int byteLen;
@@ -53,9 +65,14 @@ public class BufferedInputStream {
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArray. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
+        bufferedInputStream.close();
+
     }
 
     public void readFullFileUsingByteArray() throws Exception {
+
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
 
         Long startTime = System.currentTimeMillis();
 
@@ -66,9 +83,14 @@ public class BufferedInputStream {
         Long endTime = System.currentTimeMillis();
         System.out.println("readFullFileUsingByteArray. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
+        bufferedInputStream.close();
+
     }
 
     public void readUsingByteArrayOffset() throws Exception {
+
+        FileInputStream fileInputStream = new FileInputStream(Constant.INPUT_IMAGE);
+        java.io.BufferedInputStream bufferedInputStream = new java.io.BufferedInputStream(fileInputStream);
 
         Long startTime = System.currentTimeMillis();
 
@@ -82,10 +104,9 @@ public class BufferedInputStream {
 
         Long endTime = System.currentTimeMillis();
         System.out.println("readUsingByteArrayOffset. Size : " + totalSize + " Total Time : " + (endTime-startTime));
-    }
 
-    public void close() throws Exception {
         bufferedInputStream.close();
+
     }
 
 }
