@@ -38,7 +38,7 @@ public class FileInputStream {
         }
 
         Long endTime = System.currentTimeMillis();
-        System.out.println("readUsingSingleByte. Size : " + totalSize + " Time : " + (endTime-startTime));
+        System.out.println("readSingleByte. Size : " + totalSize + " Time : " + (endTime-startTime));
 
         fileInputStream.close();
 

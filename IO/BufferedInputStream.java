@@ -36,7 +36,7 @@ public class BufferedInputStream {
 
         Long endTime = System.currentTimeMillis();
 
-        System.out.println("readUsingSingleByte. Size : " + totalSize + " Total Time : " + (endTime-startTime));
+        System.out.println("readSingleByte. Size : " + totalSize + " Total Time : " + (endTime-startTime));
 
     }
 
